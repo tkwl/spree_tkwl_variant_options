@@ -1,0 +1,16 @@
+<tr class="option_value fields" id="spree_<%= dom_id(f.object) %>"  data-hook="option_value" class="<%= cycle('odd', 'even')%>">
+	<td class="no-border">
+		<span class="handle"></span>
+		<%= f.hidden_field :id %>
+	</td>
+	<td class="name"><%= f.text_field :name %></td>
+	<td class="presentation"><%= f.text_field :presentation %></td>
+	<td align="center">
+    <% if f.object.has_image? %>
+      <%= image_tag f.object.image.url(:small) %>
+      <%= link_to_with_icon 'icon-remove', '', detach_image_admin_option_value_path(f.object), title: Spree.t(:detach_image) %>
+    <% end %>
+  </td>
+	<td><%= f.file_field :image %></td>
+	<td class="actions"><%= link_to_remove_fields Spree.t(:remove), f, :no_text => true %></td>
+</tr>

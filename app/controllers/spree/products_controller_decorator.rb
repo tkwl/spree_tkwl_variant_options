@@ -1,0 +1,1 @@
+Spree::ProductsController.include ProductExtensions
